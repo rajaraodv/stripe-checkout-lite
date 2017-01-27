@@ -1,0 +1,45 @@
+{
+  "name": "stripe-checkout-lite",
+  "version": "0.0.1",
+  "description": "A Minimal(2kb) React Stripe Checkout library. Easily import Stripe Checkout in your React Apps",
+  "main": "./StripeCheckoutLite.min.js",
+  "scripts": {
+    "example": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "NODE_ENV=production babel ./StripeCheckoutLite.jsx --out-file ./StripeCheckoutLite.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rajaraodv/stripe-checkout-lite.git"
+  },
+  "keywords": [
+    "react",
+    "stripe",
+    "checkout",
+    "inject",
+    "loaded",
+    "easy",
+    "minimal",
+    "tiny",
+    "JSX"
+  ],
+  "author": "Raja Rao DV (http://twitter.com/rajaraodv)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajaraodv/stripe-checkout-lite/issues"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-uglify": "^1.0.2",
+    "babel-preset-babili": "0.0.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babili": "0.0.10",
+    "webpack": "^1.14.0"
+  }
+}
