@@ -1,8 +1,8 @@
 #stripe-checkout-lite
-### A Minimal(~1kb Gzipped) React Stripe Checkout library. Easily import Stripe Checkout in your React Apps
+#### A Minimal(2kb) React Stripe Checkout library. Easily import Stripe Checkout in your React Apps
 
 ##Motivation
-There are libs that add 10KB to 15KB of unnecessary code just so you can write it in markup attribute style (<Checkout price="999" />. So, stripe-checkout-lite was created. It takes attributes as a JS object, loads Stripe's checkout.js file and creates a button.
+There are libs that add 10KB to 15KB of unnecessary code just so you can write it in markup attribute style  i.e. <Checkout price="999" />. So, stripe-checkout-lite was created. It instead takes attributes as a JS object format, loads Stripe's checkout.js file and creates a button.
 
 ```
 npm install stripe-checkout-lite --save
@@ -93,14 +93,23 @@ class App extends React.Component {
 }
 ```
 
-#Running And Debugging Example
+##Building
 ```
-git clone && cd
+git clone https://github.com/rajaraodv/stripe-checkout-lite.git
+cd stripe-checkout-lite
 npm install 
-npm run build //build new StripeReactCheckout.min.js
-webpack
+npm run build  //build new StripeReactCheckout.min.js
+
+
+```
+
+##Running Example
+`npm install webpack-dev-server -g`
+
+```
+//In the stripe-checkout-lite folder run:
+webpack //Bundle latest StripeReactCheckout.min.js
 webpack-dev-server
-(npm install webpack-dev-server -g)
 ```
 
 
