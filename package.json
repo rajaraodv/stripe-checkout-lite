@@ -1,23 +1,23 @@
 {
-  "name": "stripe-checkout-lite",
+  "name": "react-google-analytics-lite",
   "version": "0.0.1",
-  "description": "A Minimal(2kb) React Stripe Checkout library. Easily import Stripe Checkout in your React Apps",
-  "main": "./StripeCheckoutLite.min.js",
+  "description": "A Minimal(2kb) React Google Analytics module. Easily load Analytics.js",
+  "main": "./gaLite.min.js",
   "scripts": {
     "example": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "build": "NODE_ENV=production babel ./StripeCheckoutLite.jsx --out-file ./StripeCheckoutLite.min.js"
+    "build": "NODE_ENV=production babel ./gaLite.jsx --out-file ./gaLite.min.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rajaraodv/stripe-checkout-lite.git"
+    "url": "https://github.com/rajaraodv/react-google-analytics-lite.git"
   },
   "keywords": [
     "react",
-    "stripe",
-    "checkout",
-    "inject",
-    "loaded",
-    "easy",
+    "Google Analytics",
+    "analyticsjs",
+    "analytics",
+    "marketing",
+    "ga",
     "minimal",
     "tiny",
     "JSX"
@@ -25,13 +25,11 @@
   "author": "Raja Rao DV (http://twitter.com/rajaraodv)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rajaraodv/stripe-checkout-lite/issues"
-  },
-  "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "url": "hhttps://github.com/rajaraodv/react-google-analytics-lite/issues"
   },
   "devDependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",  
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",

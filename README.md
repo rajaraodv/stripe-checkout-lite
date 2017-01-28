@@ -1,96 +1,75 @@
-#stripe-checkout-lite
-#### A Minimal(2kb) React Stripe Checkout library. Easily import Stripe Checkout in your React Apps
+#react-google-analytics-lite
+#### A Minimal(2kb) React Google Analytics library. It has no dependencies.
 
 ##Motivation
-There are libs that add 10KB to 15KB of unnecessary code just so you can write it in markup attribute style  i.e. <Checkout price="999" />. So, stripe-checkout-lite was created. It instead takes attributes as a JS object format, loads Stripe's checkout.js file and creates a button.
+There are libs that add 10KB to 15KB of unnecessary code just so you can write it in markup-attribute style. Last thing we want to do is make the app heavy. That's why react-google-analytics-lite was created. 
+
+It simply loads <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/" target="_blank">analytics.js</a>  and then calls a callback *onload*.
+
+**Note:** 
+
+1. It loads analytics code **only once** irrespective of how many times the component is called, or called from multiple components. So you don't have to worry of the order or where it is added.
+2. "ga" is a global variable that Google Analytics adds. All you need to do is to simply call "ga" function as per their docs.
+3. Make sure to add this component and initialize analytics `i.e. call ga('create', 'UA-XXXXX-Y', 'auto');`in the top-most/parent component.
+
+
+##Installation
 
 ```
-npm install stripe-checkout-lite --save
+npm install react-google-analytics-lite --save
 ```
 
 ##Usage:
 
 ```
-import Checkout from 'stripe-checkout-lite'
+import GA from 'react-google-analytics-lite'
 
 // In the below code, 
-// @config is Stripe checkout's config
-// @style is style for the button
-// @label label for the button
+// @onload is the callback (required)
 
-<Checkout 
-	config={ this.config } 
-	style={ { color: 'blue' } }  
-	label="Subscribe" 
-/>
+<GA onload={ this.onGALoad } />
   
 ```
-### 1. Checkout Options
-This is simply a Javascript literal that contains options mentioned in
-<a href="https://stripe.com/docs/checkout#integration-custom" target="_blank">Stripe's docs.</a>
+### "onload" callback
+This callback is called when "ga" function is ready. So you can call "ga" like below:
 
 ```
-    this.config = {
-      key: 'pk_test_5qV78InO5XtnYvFRZ2VKnIjy', //Test/Live Token (Required)
-      locale: 'auto',
-      description: 'Gold Plan',
-      amount: 999,
-      allowRememberMe: false,
-      name: 'Subscribe - $9.99/month',
-      token: this.handleToken   //This is a callback function (Required)
-    }
+this.onGALoad() {
+   ga('create', 'UA-XXXXX-Y', 'auto');
+   ga('send', 'pageview', '/about.html');
+}
 ```
-
-### 2. Style Options
-This is style JS object that needs to be applied to the button.
-
-### 3. label
-This is the button's label
-
 ## Complete Example
 
 ```
-import Checkout from 'stripe-checkout-lite'
+import React from 'react'
+import GA from 'react-google-analytics-lite'
+import About from './about.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.config = {
-      key: 'pk_test_5qV78InO5XtnYvFRZ2VKnIjy',
-      locale: 'auto',
-      description: 'Gold Plan',
-      amount: 999,
-      allowRememberMe: false,
-      name: 'Subscribe - $9.99/month',
-      token: this.handleToken
-    }
   }
 
-  handleToken(token) {
-    fetch('/post-to-server', {
-      method: 'POST',
-      body: JSON.stringify(token),
-    })
-      .then(response => response.json())
-      .then(data => {
-        alert(`Got money!, ${data.email}`);
-      })
+  onGALoad() {
+    ga('create', 'UA-XXXXX-Y', 'auto');//initialize
+    ga('send', 'pageview', '/app.html');
   }
 
 
   render() {
     return (
       <div>
+        <About />
         <h1>Example</h1>
-        <Checkout
-          config={ this.config }
-          style={ { color: 'blue' } }
-          label="Subscribe" 
-        />
+        <GA
+            onload={ this.onGALoad } />
       </div>
     )
   }
 }
+
+export default App;
 ```
 
 ##Building
